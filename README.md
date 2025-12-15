@@ -98,7 +98,7 @@ docker-compose up -d
 
 \- ✅ Course enrollment management (max 3 per semester)
 
-\- ✅ Real-time analytics \& statistics
+\- ✅ Real-time analytics \& statisticss
 
 
 
