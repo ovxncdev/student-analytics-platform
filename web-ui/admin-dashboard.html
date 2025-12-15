@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Student Analytics</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>👨‍💼 Admin Dashboard</h1>
+        <div class="user-info">
+            <span>Welcome, <strong id="adminName">Admin</strong></span>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="welcome-card">
+            <h2>System Overview</h2>
+            <p>Manage users, view analytics, and monitor system performance.</p>
+        </div>
+        
+        <div class="card">
+            <h2>📊 System Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Students</h3>
+                    <div class="value" id="totalStudents">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Teachers</h3>
+                    <div class="value" id="totalTeachers">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Active Courses</h3>
+                    <div class="value" id="totalCourses">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Enrollments</h3>
+                    <div class="value" id="totalEnrollments">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>👥 All Users</h2>
+                <button class="btn-predict" style="width: auto; padding: 10px 20px;" onclick="showAddUserForm()">
+                    ➕ Add New User
+                </button>
+            </div>
+            
+            <div id="addUserForm" style="display: none; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3>Add New User</h3>
+                <form id="newUserForm" onsubmit="createUser(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="newUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="newFullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="newEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
+                            <select id="newRole" required>
+                                <option value="1">Admin</option>
+                                <option value="2">Teacher</option>
+                                <option value="3">Student</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" style="width: auto; margin-right: 10px;">Save User</button>
+                    <button type="button" class="btn-logout" onclick="hideAddUserForm()">Cancel</button>
+                </form>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable">
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 20px; color: #999;">
+                            Loading users...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+	<div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>📚 All Courses</h2>
+                <button class="btn-predict" style="width: auto; padding: 10px 20px;" onclick="showAddCourseForm()">
+                    ➕ Add New Course
+                </button>
+            </div>
+            
+            <div id="addCourseForm" style="display: none; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3>Add New Course</h3>
+                <form id="newCourseForm" onsubmit="createCourse(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Course Code</label>
+                            <input type="text" id="newCourseCode" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Course Name</label>
+                            <input type="text" id="newCourseName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teacher ID</label>
+                            <input type="number" id="newTeacherId" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester</label>
+                            <input type="text" id="newSemester" placeholder="e.g., Fall" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="number" id="newYear" value="2025" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Credits</label>
+                            <input type="number" id="newCredits" value="3" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-predict" style="width: auto; margin-right: 10px;">Save Course</button>
+                    <button type="button" class="btn-logout" onclick="hideAddCourseForm()">Cancel</button>
+                </form>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Code</th>
+                        <th>Course Name</th>
+                        <th>Teacher ID</th>
+                        <th>Semester</th>
+                        <th>Credits</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="coursesTable">
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 20px; color: #999;">
+                            Loading courses...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>📈 Risk Distribution</h2>
+            <div id="riskInfo" style="padding: 20px; text-align: center; color: #999;">
+                Loading analytics...
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

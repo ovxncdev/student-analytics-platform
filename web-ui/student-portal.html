@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Student Analytics</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>📚 Student Portal</h1>
+        <div class="user-info">
+            <span>Welcome, <strong id="studentName">Student</strong></span>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="welcome-card">
+            <h2>My Academic Dashboard</h2>
+            <p>View your performance, enroll in courses, and track your progress.</p>
+        </div>
+        
+        <div class="card">
+            <h2>📊 My Performance Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Current GPA</h3>
+                    <div class="value" id="gpaValue">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Average Attendance</h3>
+                    <div class="value" id="attendanceValue">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Enrolled Courses</h3>
+                    <div class="value" id="enrolledValue">-</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Average Score</h3>
+                    <div class="value" id="scoreValue">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📚 Available Courses to Enroll</h2>
+            <p style="color: #666; margin-bottom: 15px;">You can enroll in maximum 3 courses per semester.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Teacher</th>
+                        <th>Credits</th>
+                        <th>Semester</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="availableCoursesTable">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px; color: #999;">
+                            Loading available courses...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h2>📖 My Enrolled Courses</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Current Grade</th>
+                        <th>Attendance</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="enrolledCoursesTable">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px; color: #999;">
+                            Loading your courses...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card" id="predictionCard" style="display: none;">
+            <h2>🔮 My Prediction for <span id="selectedCourseName">Course</span></h2>
+            
+            <div class="results-grid">
+                <div class="result-card grade">
+                    <h4>Predicted Grade</h4>
+                    <div class="value" id="predGrade">-</div>
+                </div>
+                <div class="result-card score">
+                    <h4>Predicted Score</h4>
+                    <div class="value" id="predScore">-</div>
+                </div>
+                <div class="result-card risk">
+                    <h4>Risk Level</h4>
+                    <div class="value" id="predRisk">-</div>
+                </div>
+                <div class="result-card">
+                    <h4>Pass Probability</h4>
+                    <div class="value" id="predProb">-</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">💡 Recommendations for You</h3>
+            <div id="recommendationsBox" style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
+                <p style="color: #999;">Loading recommendations...</p>
+            </div>
+            
+            <button onclick="closePrediction()" class="btn-logout" style="width: auto; margin-top: 20px;">Close</button>
+        </div>
+    </div>
+    
+    <script src="js/student-portal.js"></script>
+</body>
+</html>

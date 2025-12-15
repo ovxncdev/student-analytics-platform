@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Student Analytics</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>📊 Teacher Dashboard</h1>
+        <div class="user-info">
+            <span>Welcome, <strong id="teacherName">Teacher</strong></span>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Student Performance Prediction</h2>
+            <p>Enter student performance metrics below to generate AI-powered predictions for final grades, scores, and risk assessment.</p>
+        </div>
+        
+        <div class="prediction-form">
+            <h3>📝 Student Performance Data</h3>
+            
+            <form id="predictionForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="attendance">Attendance Percentage (%)</label>
+                        <input type="number" id="attendance" min="0" max="100" step="0.1" required>
+                        <small>0 - 100</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quiz">Quiz Average</label>
+                        <input type="number" id="quiz" min="0" max="100" step="0.1" required>
+                        <small>0 - 100</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assignment">Assignment Average</label>
+                        <input type="number" id="assignment" min="0" max="100" step="0.1" required>
+                        <small>0 - 100</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="midterm">Midterm Score</label>
+                        <input type="number" id="midterm" min="0" max="100" step="0.1" required>
+                        <small>0 - 100</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="participation">Participation Score</label>
+                        <input type="number" id="participation" min="1" max="10" step="1" required>
+                        <small>1 - 10</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studyHours">Study Hours per Week</label>
+                        <input type="number" id="studyHours" min="0" max="20" step="0.5" required>
+                        <small>0 - 20</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="previousGpa">Previous GPA</label>
+                        <input type="number" id="previousGpa" min="0" max="4.0" step="0.01" required>
+                        <small>0.0 - 4.0</small>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-predict" id="predictBtn">
+                    🔮 Generate Prediction
+                </button>
+            </form>
+            
+            <div id="loading" class="loading">
+                <p>⏳ Analyzing student data...</p>
+            </div>
+            
+            <div id="error" class="error"></div>
+            
+            <div id="results" class="results-container">
+                <h3 style="margin-bottom: 20px;">📊 Prediction Results</h3>
+                <div class="results-grid">
+                    <div class="result-card grade">
+                        <h4>Predicted Grade</h4>
+                        <div class="value" id="resultGrade">-</div>
+                        <div class="sub-text">Letter Grade</div>
+                    </div>
+                    
+                    <div class="result-card score">
+                        <h4>Predicted Score</h4>
+                        <div class="value" id="resultScore">-</div>
+                        <div class="sub-text">Out of 100</div>
+                    </div>
+                    
+                    <div class="result-card risk">
+                        <h4>Risk Assessment</h4>
+                        <div class="value" id="resultRisk">-</div>
+                        <div class="sub-text" id="resultRiskLevel">-</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>Pass Probability</h4>
+                        <div class="value" id="resultProb">-</div>
+                        <div class="sub-text">Confidence Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

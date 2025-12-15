@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Analytics - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="logo">
+            <h1>📊 Student Analytics</h1>
+            <p>ML-Powered Performance Prediction Platform</p>
+        </div>
+        
+        <div id="errorMessage" class="error-message"></div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            
+            <button type="submit" class="btn-login" id="loginBtn">Login</button>
+        </form>
+        
+        <div class="info-box">
+            <h3>Demo Credentials:</h3>
+            <p>
+                <strong>Admin:</strong> admin / admin123<br>
+                <strong>Teacher:</strong> prof.smith / teacher123<br>
+                <strong>Student:</strong> john.doe / student123
+            </p>
+        </div>
+    </div>
+    
+    <script src="js/login.js"></script>
+</body>
+</html>
