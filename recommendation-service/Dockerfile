@@ -5,9 +5,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:8-alpine
-RUN apk add --no-cache python3 py3-pip && \
-    pip3 install --no-cache-dir scikit-learn pandas numpy joblib
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8083
+EXPOSE 8085
 CMD ["java", "-jar", "app.jar"]

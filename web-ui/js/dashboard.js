@@ -1,5 +1,4 @@
-// API Configuration
-const API_BASE_URL = 'http://localhost:8083'; // Prediction Service
+//dashboard.js API Configuration
 
 // Check authentication
 const userRole = localStorage.getItem('userRole');

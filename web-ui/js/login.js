@@ -1,5 +1,4 @@
-// API Configuration
-const API_BASE_URL = 'http://localhost:8080';
+//login.js API Configuration
 
 // Login form handler
 document.getElementById('loginForm').addEventListener('submit', async function(e) {

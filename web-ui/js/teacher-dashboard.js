@@ -1,9 +1,4 @@
-// API Configuration
-const API_COURSE = 'http://localhost:8081';
-const API_PERFORMANCE = 'http://localhost:8082';
-const API_USER = 'http://localhost:8080';
-const API_PREDICTION = 'http://localhost:8083';
-const API_RECOMMENDATION = 'http://localhost:8085';
+//teacher-dashboard API Configuration
 
 // Check authentication
 const userRole = localStorage.getItem('userRole');

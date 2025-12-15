@@ -1,7 +1,5 @@
+//admin-dashboard.js
 // API Configuration
-const API_COURSE = 'http://localhost:8081';
-const API_USER = 'http://localhost:8080';
-const API_ANALYTICS = 'http://localhost:8084';
 
 // Check authentication
 const userRole = localStorage.getItem('userRole');

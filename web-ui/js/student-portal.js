@@ -1,9 +1,4 @@
-// API Configuration
-const API_PERFORMANCE = 'http://localhost:8082';
-const API_ANALYTICS = 'http://localhost:8084';
-const API_RECOMMENDATIONS = 'http://localhost:8085';
-const API_COURSE = 'http://localhost:8081';
-const API_PREDICTION = 'http://localhost:8083';
+// student-portal.js API Configuration
 
 // Check authentication
 const userRole = localStorage.getItem('userRole');
