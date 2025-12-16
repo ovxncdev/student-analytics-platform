@@ -4,15 +4,12 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-FROM eclipse-temurin:8-jre-alpine
-RUN apk add --no-cache \
-    python3 \
-    py3-pip \
-    py3-numpy \
-    py3-scipy \
-    py3-scikit-learn \
-    py3-pandas && \
-    pip3 install --break-system-packages --no-cache-dir joblib
+FROM eclipse-temurin:8-jre
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+    pip3 install --break-system-packages scikit-learn pandas numpy joblib && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
