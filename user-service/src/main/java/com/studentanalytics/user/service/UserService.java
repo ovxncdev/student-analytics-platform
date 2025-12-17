@@ -54,7 +54,7 @@ public class UserService {
 
         User user = new User();
         user.setUsername(userDTO.getUsername());
-        user.setPasswordHash(passwordEncoder.encode(userDTO.getPassword()));
+        user.setPasswordHash(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
         user.setRole(userDTO.getRole());
         user.setFullName(userDTO.getFullName());
@@ -102,7 +102,7 @@ public class UserService {
         }
 
         if (userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()) {
-            user.setPasswordHash(passwordEncoder.encode(userDTO.getPassword()));
+            user.setPasswordHash(userDTO.getPassword());
         }
 
         if (userDTO.getFullName() != null) {

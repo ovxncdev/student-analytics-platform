@@ -1,14 +1,14 @@
 -- Insert users
 INSERT IGNORE INTO users (user_id, username, password_hash, email, role, full_name) VALUES 
-(1, 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'admin@university.edu', 1, 'System Administrator'),
-(2, 'prof.smith', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'jsmith@university.edu', 2, 'Dr. John Smith'),
-(3, 'prof.johnson', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ejohnson@university.edu', 2, 'Dr. Emily Johnson'),
-(4, 'prof.williams', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'mwilliams@university.edu', 2, 'Prof. Michael Williams'),
-(5, 'john.doe', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'jdoe@student.edu', 3, 'John Doe'),
-(6, 'jane.smith', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'jsmith@student.edu', 3, 'Jane Smith'),
-(7, 'bob.wilson', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'bwilson@student.edu', 3, 'Bob Wilson'),
-(8, 'alice.brown', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'abrown@student.edu', 3, 'Alice Brown'),
-(9, 'charlie.davis', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'cdavis@student.edu', 3, 'Charlie Davis');
+(1, 'admin', 'admin123', 'admin@university.edu', 1, 'System Administrator'),
+(2, 'prof.smith', 'teacher123', 'jsmith@university.edu', 2, 'Dr. John Smith'),
+(3, 'prof.johnson', 'teacher123', 'ejohnson@university.edu', 2, 'Dr. Emily Johnson'),
+(4, 'prof.williams', 'teacher123', 'mwilliams@university.edu', 2, 'Prof. Michael Williams'),
+(5, 'john.doe', 'student123', 'jdoe@student.edu', 3, 'John Doe'),
+(6, 'jane.smith', 'student123', 'jsmith@student.edu', 3, 'Jane Smith'),
+(7, 'bob.wilson', 'student123', 'bwilson@student.edu', 3, 'Bob Wilson'),
+(8, 'alice.brown', 'student123', 'abrown@student.edu', 3, 'Alice Brown'),
+(9, 'charlie.davis', 'student123', 'cdavis@student.edu', 3, 'Charlie Davis');
 
 -- Insert teachers
 INSERT IGNORE INTO teachers (teacher_id, user_id, employee_id, department, office_location, phone) VALUES 
